@@ -9,5 +9,6 @@ class Shopping extends Model
 {
     use HasFactory;
     protected $table = 'shopping';
-    protected $fillable = ['name','CreateDate'];
+    protected $fillable = ['name','createdDate','api_token'];
+    public $timestamps = false;
 }

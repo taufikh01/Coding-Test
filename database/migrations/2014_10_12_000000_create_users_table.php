@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('postcode',8);
             $table->string('name');
-            $table->string('adress');
+            $table->string('address');
+            $table->string('token', 80)->unique()->nullable()->default(null);
         });
     }
 

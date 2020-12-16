@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens,HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -26,8 +27,12 @@ class User extends Authenticatable
         'city',
         'postcode',
         'name',
-        'adress'
+        'address',
+        'api_token'
     ];
+
+    protected $created_at = false;
+    protected $updated_at = false;
 
     /**
      * The attributes that should be hidden for arrays.
